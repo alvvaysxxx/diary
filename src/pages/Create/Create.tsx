@@ -58,8 +58,13 @@ export default function Create({ setTasks, tasks }: any) {
             <button
               onClick={() => {
                 if (date || editorState.getCurrentContent().hasText()) {
-                  setTasks((current: []) => [
-                    ...current,
+                  console.log("Добавляю");
+                  let newTasks: any = [
+                    ...tasks.slice().sort((a: any, b: any) => {
+                      const dateA: any = new Date(a.date);
+                      const dateB: any = new Date(b.date);
+                      return dateA - dateB;
+                    }),
                     {
                       id: tasks.length,
                       content: draftToHtml(
@@ -67,6 +72,14 @@ export default function Create({ setTasks, tasks }: any) {
                       ),
                       date,
                     },
+                  ];
+
+                  setTasks(() => [
+                    ...newTasks.slice().sort((a: any, b: any) => {
+                      const dateA: any = new Date(a.date);
+                      const dateB: any = new Date(b.date);
+                      return dateA - dateB;
+                    }),
                   ]);
                   navigate(-1);
                 }

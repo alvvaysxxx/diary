@@ -12,21 +12,7 @@ function App() {
   );
 
   useEffect(() => {
-    const sortedTasks = tasks.slice().sort((a: any, b: any) => {
-      const dateA: any = new Date(a.date);
-      const dateB: any = new Date(b.date);
-      return dateA - dateB;
-    });
-    console.log("saving");
-
-    if (
-      !areTasksEqual(sortedTasks, tasks) ||
-      localStorage.getItem("tasks") === null
-    ) {
-      setTasks(sortedTasks);
-      console.log("saved");
-      localStorage.setItem("tasks", JSON.stringify(sortedTasks));
-    }
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   return (
@@ -46,21 +32,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
-
-// Функция для сравнения массивов tasks
-function areTasksEqual(tasksA: any[], tasksB: any[]) {
-  if (tasksA.length !== tasksB.length) {
-    return false;
-  }
-
-  for (let i = 0; i < tasksA.length; i++) {
-    if (tasksA[i].id !== tasksB[i].id) {
-      return false;
-    }
-  }
-
-  return true;
 }
 
 export default App;
