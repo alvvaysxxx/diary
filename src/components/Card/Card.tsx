@@ -12,6 +12,7 @@ const CardTitle = ({ children }: any) => {
   return (
     <>
       <span className={cardStyles.cardTitle}>{children.toUpperCase()}</span>
+      <hr style={{ marginTop: "10px", marginBottom: "15px" }} />
     </>
   );
 };
@@ -27,6 +28,7 @@ function CardBody({ children }: any) {
 function CardFooter({ children }: any) {
   return (
     <>
+      <hr style={{ marginTop: "10px", marginBottom: "15px" }} />
       <div>{children}</div>
     </>
   );
