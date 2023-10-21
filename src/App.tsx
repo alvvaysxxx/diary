@@ -17,9 +17,14 @@ function App() {
       const dateB: any = new Date(b.date);
       return dateA - dateB;
     });
+    console.log("saving");
 
-    if (!areTasksEqual(sortedTasks, tasks)) {
+    if (
+      !areTasksEqual(sortedTasks, tasks) ||
+      localStorage.getItem("tasks") === null
+    ) {
       setTasks(sortedTasks);
+      console.log("saved");
       localStorage.setItem("tasks", JSON.stringify(sortedTasks));
     }
   }, [tasks]);
