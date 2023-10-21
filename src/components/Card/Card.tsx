@@ -4,6 +4,7 @@ const CardHeader = ({ children }: any) => {
   return (
     <>
       <div>{children}</div>
+      <hr style={{ marginTop: "10px", marginBottom: "15px" }} />
     </>
   );
 };
@@ -12,7 +13,6 @@ const CardTitle = ({ children }: any) => {
   return (
     <>
       <span className={cardStyles.cardTitle}>{children.toUpperCase()}</span>
-      <hr style={{ marginTop: "10px", marginBottom: "15px" }} />
     </>
   );
 };

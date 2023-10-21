@@ -41,6 +41,7 @@ const TodoItem = ({ task, left, setTasks, tasks }: any) => {
   return (
     <Card>
       <CardHeader>
+        <p>{task.date}</p>
         <CardTitle>{left}</CardTitle>
       </CardHeader>
       <CardBody>
