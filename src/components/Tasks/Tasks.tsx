@@ -50,10 +50,13 @@ const TodoItem = ({ task, left, setTasks, tasks }: any) => {
         <button
           className={styles.trash}
           onClick={() => {
+            console.log(tasks);
             const updatedTasks = [...tasks];
-            updatedTasks.splice(task.id - 1, 1);
+            let arrayOfObjects: any = updatedTasks.filter(
+              (obj) => obj.content !== task.content
+            );
             setTasks(() => [
-              ...updatedTasks.slice().sort((a: any, b: any) => {
+              ...arrayOfObjects.slice().sort((a: any, b: any) => {
                 const dateA: any = new Date(a.date);
                 const dateB: any = new Date(b.date);
                 return dateA - dateB;
