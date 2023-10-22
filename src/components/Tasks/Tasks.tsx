@@ -47,7 +47,7 @@ const TodoItem = ({ task, left, setTasks, tasks }: any) => {
     "Суббота",
     "Воскресенье",
   ];
-  let taskDay: any = days[new Date(task.date).getDay() - 1];
+  let taskDay: any = days[new Date(task.date).getDay() - 1] || "Воскресенье";
   return (
     <Card>
       <CardHeader>
