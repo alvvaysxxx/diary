@@ -38,10 +38,22 @@ export default function Tasks({ tasks, setTasks }: any) {
 }
 
 const TodoItem = ({ task, left, setTasks, tasks }: any) => {
+  let days: [string, string, string, string, string, string, string] = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ];
+  let taskDay: any = days[new Date(task.date).getDay() - 1];
   return (
     <Card>
       <CardHeader>
-        <p>{task.date}</p>
+        <p>
+          {taskDay}, {task.date}
+        </p>
         <CardTitle>{left}</CardTitle>
       </CardHeader>
       <CardBody>
